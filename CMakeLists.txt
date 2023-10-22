@@ -1,0 +1,12 @@
+PROJECT(gesture)
+SET(CMAKE_CXX_STANDARD 11)
+find_package(OpenCV REQUIRED)
+INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
+
+ADD_EXECUTABLE(main main.cpp)
+add_executable(objdetect objectDetection.cpp)
+ADD_EXECUTABLE(writeFeatures writeFeatures.cpp)
+link_directories(${OpenCV_LIBRARY_DIRS})
+target_link_libraries(main ${OpenCV_LIBS})
+target_link_libraries(objdetect ${OpenCV_LIBS})
+target_link_libraries(writeFeatures ${OpenCV_LIBS})
